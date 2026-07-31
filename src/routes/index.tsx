@@ -360,7 +360,7 @@ function Portfolio() {
             key={w.title}
             data-reveal
             style={{ transitionDelay: `${i * 80}ms` }}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
+            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
               <img
@@ -382,14 +382,16 @@ function Portfolio() {
                 <MapPin className="h-3.5 w-3.5" /> {w.location}
               </div>
               <p className="mt-3 text-sm text-muted-foreground">{w.copy}</p>
+              <div className="mt-auto pt-6">
               <a
                 href={w.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent-blue hover:text-accent-blue"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent-blue hover:text-accent-blue"
               >
                 View Live Demo <ExternalLink className="h-4 w-4" />
               </a>
+              </div>
             </div>
           </article>
         ))}
