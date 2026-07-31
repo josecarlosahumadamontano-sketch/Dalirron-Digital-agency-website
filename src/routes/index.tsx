@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Check,
   ChevronDown,
+  ExternalLink,
   Globe,
   LayoutTemplate,
   Search,
@@ -18,9 +19,9 @@ import {
   X,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
+import conceptCrownBlade from "@/assets/concept-crown-blade.jpg";
+import conceptBellanova from "@/assets/concept-bellanova.jpg";
+import conceptHarbourDental from "@/assets/concept-harbour-dental.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,6 +90,7 @@ function LandingPage() {
 
 /* ---------- NAV ---------- */
 const NAV_LINKS = [
+  { href: "#top", label: "Home" },
   { href: "#services", label: "Services" },
   { href: "#portfolio", label: "Work" },
   { href: "#process", label: "Process" },
@@ -192,7 +194,7 @@ function Hero() {
           className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur"
         >
           <Sparkles className="h-3.5 w-3.5 text-accent-blue" />
-          Premium websites for local businesses
+          UK-based web design for local businesses
         </div>
         <h1
           data-reveal
@@ -206,8 +208,8 @@ function Hero() {
           className="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
           We design fast, mobile-friendly websites for barbers, restaurants, gyms, dentists and
-          electricians — built to make a strong first impression and turn visitors into enquiries,
-          bookings and calls.
+          other local businesses across the UK — built to make a strong first impression and turn
+          visitors into enquiries, bookings and calls.
         </p>
         <div data-reveal className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
@@ -318,9 +320,30 @@ function Services() {
 
 /* ---------- PORTFOLIO ---------- */
 const WORK = [
-  { img: portfolio1, title: "Barbershop Website Concept", tag: "Barbershop", copy: "Concept website created to demonstrate the type of websites Dalirron Digital can build." },
-  { img: portfolio2, title: "Restaurant Website Concept", tag: "Restaurant", copy: "Concept website created to demonstrate the type of websites Dalirron Digital can build." },
-  { img: portfolio3, title: "Gym Website Concept", tag: "Gym", copy: "Concept website created to demonstrate the type of websites Dalirron Digital can build." },
+  {
+    img: conceptCrownBlade,
+    title: "Crown & Blade",
+    tag: "Barbershop Website",
+    location: "Manchester, UK",
+    copy: "A premium barbershop website designed to showcase services, pricing, atmosphere and booking information clearly.",
+    href: "https://crown-and-blade-demo.vercel.app/",
+  },
+  {
+    img: conceptBellanova,
+    title: "Bellanova",
+    tag: "Restaurant Website",
+    location: "London, UK",
+    copy: "An elegant restaurant website designed to present the dining experience, menu and reservation options in a polished way.",
+    href: "https://bellanova-restaurant-demo.vercel.app/#home",
+  },
+  {
+    img: conceptHarbourDental,
+    title: "Harbour Dental",
+    tag: "Dental Practice Website",
+    location: "Brighton, UK",
+    copy: "A polished dental practice website designed to build trust and make appointment enquiries simple.",
+    href: "https://harbour-dental-demo.vercel.app/",
+  },
 ];
 
 function Portfolio() {
@@ -331,34 +354,44 @@ function Portfolio() {
         we bring to real client work. They are not live client projects — your website will be designed
         from scratch for your business.
       </p>
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {WORK.map((w, i) => (
-          <a
+          <article
             key={w.title}
-            href="#contact"
             data-reveal
             style={{ transitionDelay: `${i * 80}ms` }}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card"
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
           >
-            <div className="aspect-[4/3] overflow-hidden bg-secondary">
+            <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
               <img
                 src={w.img}
-                alt={w.title}
+                alt={`${w.title} — ${w.tag} concept website homepage`}
                 loading="lazy"
-                width={1200}
-                height={900}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                width={1440}
+                height={1080}
+                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
+              <span className="absolute left-4 top-4 rounded-full border border-border bg-background/80 px-3 py-1 text-[10px] uppercase tracking-widest text-accent-blue backdrop-blur">
+                Concept Website
+              </span>
             </div>
-            <div className="flex items-end justify-between gap-4 p-6">
-              <div className="min-w-0">
-                <div className="text-xs uppercase tracking-widest text-accent-blue">{w.tag}</div>
-                <h3 className="mt-2 truncate text-2xl font-medium">{w.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{w.copy}</p>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="text-xs uppercase tracking-widest text-accent-blue">{w.tag}</div>
+              <h3 className="mt-2 text-2xl font-medium">{w.title}</h3>
+              <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
+                <MapPin className="h-3.5 w-3.5" /> {w.location}
               </div>
-              <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-accent-blue" />
+              <p className="mt-3 text-sm text-muted-foreground">{w.copy}</p>
+              <a
+                href={w.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent-blue hover:text-accent-blue"
+              >
+                View Live Demo <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </Section>
@@ -369,7 +402,7 @@ function Portfolio() {
 const WHY = [
   { t: "Local business specialists", d: "We only build for local trades — we know what converts your kind of customer." },
   { t: "Fixed prices, no surprises", d: "Transparent pricing with everything included. No nickel-and-diming." },
-  { t: "Launch in 14 days", d: "Fast turnaround without cutting corners on quality or performance." },
+  { t: "Fast, reliable turnaround", d: "Most small-business websites can be completed within 2–4 weeks, depending on the project." },
   { t: "Conversion-focused design", d: "Every button, section and word is engineered to drive bookings." },
   { t: "Real humans, real support", d: "Text or call your dedicated project lead — no ticket queues." },
   { t: "Own everything you build", d: "You get full ownership of your site, code and content. Always." },
@@ -432,8 +465,8 @@ function Testimonials() {
     >
       <div data-reveal className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-8 text-center md:p-12">
         <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-          We&apos;re currently working with our first local businesses. Genuine client reviews and
-          case studies will appear here as projects are completed.
+          We&apos;re currently accepting our first client projects. Genuine reviews and case studies
+          will be added as completed websites go live.
         </p>
       </div>
     </Section>
@@ -498,10 +531,14 @@ function Pricing() {
             </ul>
             <a
               href="#contact"
-              className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all ${
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 ease-out will-change-transform ${
                 p.featured
-                  ? "bg-gradient-to-r from-accent-blue to-accent text-primary-foreground hover:scale-[1.02]"
-                  : "border border-border text-foreground hover:border-accent-blue hover:text-accent-blue"
+                  ? "bg-gradient-to-r from-accent-blue to-accent text-primary-foreground hover:scale-[1.02] active:scale-[0.98]"
+                  : "border border-border bg-foreground/[0.02] text-foreground hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-foreground/[0.06] hover:text-foreground active:translate-y-0 active:scale-[0.97]"
               }`}
             >
               Get a Free Website Demo
@@ -567,6 +604,8 @@ function FAQItem({ q, a, defaultOpen }: { q: string; a: string; defaultOpen?: bo
 /* ---------- CONTACT ---------- */
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   return (
     <section id="contact" className="relative overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[400px] bg-hero-glow" />
@@ -602,7 +641,39 @@ function Contact() {
           </div>
           <form
             data-reveal
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            action="https://formspree.io/f/xwvgnjzn"
+            method="POST"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setError(null);
+              const form = e.currentTarget;
+              const data = new FormData(form);
+              // Honeypot spam check — if filled, silently "succeed"
+              if ((data.get("_gotcha") as string)?.trim()) {
+                setSent(true);
+                return;
+              }
+              setSubmitting(true);
+              try {
+                const res = await fetch("https://formspree.io/f/xwvgnjzn", {
+                  method: "POST",
+                  headers: { Accept: "application/json" },
+                  body: data,
+                });
+                if (res.ok) {
+                  setSent(true);
+                  form.reset();
+                } else {
+                  const payload = await res.json().catch(() => null);
+                  const msg = payload?.errors?.[0]?.message;
+                  setError(msg || "Something went wrong. Please try again, or reach us by email or WhatsApp.");
+                }
+              } catch {
+                setError("Network error. Please try again, or reach us by email or WhatsApp.");
+              } finally {
+                setSubmitting(false);
+              }
+            }}
             className="rounded-2xl border border-border bg-background/60 p-6 backdrop-blur md:p-8"
           >
             {sent ? (
@@ -632,11 +703,33 @@ function Contact() {
                     className="w-full rounded-xl border border-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-all placeholder:text-muted-foreground/70 focus:border-accent-blue focus:bg-secondary/70"
                   />
                 </div>
+                {/* Honeypot field — hidden from real users, catches bots */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+                <input type="hidden" name="_subject" value="New website demo request — Dalirron Digital" />
+                {error && (
+                  <div
+                    role="alert"
+                    className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+                  >
+                    {error} You can also email{" "}
+                    <a href="mailto:dalirrondigital@gmail.com" className="underline">dalirrondigital@gmail.com</a>{" "}
+                    or message us on{" "}
+                    <a href="https://wa.me/447916702846" target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-blue to-accent px-8 py-4 text-sm font-semibold text-primary-foreground shadow-luxe transition-transform hover:scale-[1.01]"
+                  disabled={submitting}
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-blue to-accent px-8 py-4 text-sm font-semibold text-primary-foreground shadow-luxe transition-transform hover:scale-[1.01] disabled:opacity-60 disabled:hover:scale-100"
                 >
-                  Get a Free Website Demo
+                  {submitting ? "Sending…" : "Get a Free Website Demo"}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
