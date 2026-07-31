@@ -555,12 +555,12 @@ function Pricing() {
 
 /* ---------- FAQs ---------- */
 const FAQ = [
-  { q: "How long does it take to launch a website?", a: "Most small businesses are completed within 2–4 weeks depending on the project's flexibility." },
+  { q: "How long does it take to launch a website?", a: "Most small businesses are completed within 2–4 weeks depending on the project's scope and requirements." },
   { q: "Do I own the site once it’s built?", a: "Yes — you own the design, code and content outright. No lock-in, ever." },
   { q: "Can you write my content and copy?", a: "Absolutely. Copywriting is included in Growth and Signature. We can also start from your existing content." },
   { q: "Do you handle hosting and updates?", a: "Yes — we offer a monthly care plan covering hosting, backups, security and small edits." },
   { q: "What if I already have a website?", a: "We’ll audit it for free and either redesign or rebuild — whichever gives you the best return." },
-  { q: "Do you work with businesses outside my industry?", a: "We specialise in local trades but happily consider any local, service-based business." },
+  { q: "Do you work with businesses outside my industry?", a: "We specialise in local and service-based businesses, and we're happy to consider businesses across a wide range of industries." },
 ];
 
 function FAQs() {
