@@ -290,8 +290,8 @@ const SERVICES = [
   },
   {
     icon: Wrench,
-    title: "Ongoing Care",
-    desc: "Reliable hosting, updates and content edits handled for you, so your site stays fast, secure and up to date.",
+    title: "Website Handover",
+    desc: "Once the project is fully paid, you receive ownership of the completed website and the access needed to manage it. Future edits can be requested and quoted separately.",
   },
 ];
 
@@ -430,10 +430,10 @@ function WhyChooseUs() {
 
 /* ---------- PROCESS ---------- */
 const STEPS = [
-  { n: "01", t: "Discovery Call", d: "A 20-minute chat to understand your business, customers and goals." },
-  { n: "02", t: "Free Demo", d: "We design a live preview of your site — you see it before you commit." },
-  { n: "03", t: "Design & Build", d: "We handcraft your site with premium visuals, copy and integrations." },
-  { n: "04", t: "Launch & Support", d: "We ship, train you, and provide ongoing support to keep your site running smoothly." },
+  { n: "01", t: "Initial Consultation", d: "We discuss your business, goals, customers and website requirements." },
+  { n: "02", t: "Homepage Preview", d: "We create a free initial homepage concept so you can see the direction before committing." },
+  { n: "03", t: "Design & Build", d: "After the deposit is paid, we complete the website and the agreed rounds of revisions." },
+  { n: "04", t: "Launch & Handover", d: "After final approval and payment, we launch the website and provide the relevant ownership and access details." },
 ];
 
 function Process() {
@@ -478,29 +478,34 @@ function Testimonials() {
 /* ---------- PRICING ---------- */
 const PLANS = [
   {
-    name: "Starter",
+    name: "Starter Website",
     price: "Request a Quote",
     tagline: "Perfect for a one-location business ready to look professional.",
     features: ["Up to 5 pages", "Mobile-first design", "Contact form", "Local SEO basics", "1 round of revisions"],
   },
   {
-    name: "Growth",
+    name: "Business Website",
     price: "Request a Quote",
-    tagline: "Our most popular — designed to book more clients on autopilot.",
-    features: ["Up to 10 pages", "Online bookings", "Copywriting included", "Advanced local SEO", "3 rounds of revisions", "30 days of support"],
+    tagline: "Our most popular — built to turn more visitors into enquiries and bookings.",
+    features: ["Up to 10 pages", "Online bookings", "Copywriting included", "Advanced local SEO", "3 rounds of revisions", "Website handover on completion"],
     featured: true,
   },
   {
-    name: "Signature",
+    name: "Bespoke Website",
     price: "Request a Quote",
     tagline: "Bespoke design & premium build for established local brands.",
-    features: ["Unlimited pages", "Custom animations", "Payments & memberships", "Full SEO strategy", "Priority support", "12 months of care"],
+    features: ["Larger multi-page build", "Custom animations", "Payments & memberships", "Full SEO strategy", "Agreed rounds of revisions", "Website handover on completion"],
   },
 ];
 
 function Pricing() {
   return (
-    <Section id="pricing" eyebrow="Pricing" title={<>Fixed prices. <em className="italic text-gradient-blue">Zero surprises.</em></>}>
+    <Section
+      id="pricing"
+      eyebrow="Pricing"
+      title={<>Clear quotes. <em className="italic text-gradient-blue">No unexpected costs.</em></>}
+      subtitle="Every project receives an agreed written quote before work begins. Any additional work is discussed and approved first."
+    >
       <div className="grid gap-6 md:grid-cols-3">
         {PLANS.map((p, i) => (
           <div
@@ -556,9 +561,9 @@ function Pricing() {
 /* ---------- FAQs ---------- */
 const FAQ = [
   { q: "How long does it take to launch a website?", a: "Most small businesses are completed within 2–4 weeks depending on the project's scope and requirements." },
-  { q: "Do I own the site once it’s built?", a: "Yes — you own the design, code and content outright. No lock-in, ever." },
+  { q: "Do I own the site once it’s built?", a: "Yes — once the final payment has been made, you receive ownership of the completed website, its code and the custom content created for your project. Any third-party services, images, fonts or software remain subject to their own licences." },
   { q: "Can you write my content and copy?", a: "Absolutely. Copywriting is included in Growth and Signature. We can also start from your existing content." },
-  { q: "Do you handle hosting and updates?", a: "Yes — we offer a monthly care plan covering hosting, backups, security and small edits." },
+  { q: "Do you handle hosting and updates?", a: "We can help set up the domain and hosting in your name. After launch, the website is yours. Future updates can be requested and quoted separately." },
   { q: "What if I already have a website?", a: "We’ll audit it for free and either redesign or rebuild — whichever gives you the best return." },
   { q: "Do you work with businesses outside my industry?", a: "We specialise in local and service-based businesses, and we're happy to consider businesses across a wide range of industries." },
 ];
@@ -833,11 +838,13 @@ function Section({
   id,
   eyebrow,
   title,
+  subtitle,
   children,
 }: {
   id: string;
   eyebrow: string;
   title: ReactNode;
+  subtitle?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -850,6 +857,11 @@ function Section({
           <h2 data-reveal className="text-4xl font-medium leading-[1.1] md:text-5xl">
             {title}
           </h2>
+          {subtitle && (
+            <p data-reveal className="mt-5 text-base leading-relaxed text-muted-foreground">
+              {subtitle}
+            </p>
+          )}
         </div>
         {children}
       </div>
