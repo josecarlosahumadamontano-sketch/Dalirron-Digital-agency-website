@@ -634,8 +634,8 @@ function Contact() {
             </p>
             <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:dalirrondigital@gmail.com" className="flex items-center gap-3 transition-colors hover:text-foreground">
-                  <Mail className="h-4 w-4 text-accent-blue" /> dalirrondigital@gmail.com
+                <a href="mailto:hello@dalirrondigital.co.uk" className="flex items-center gap-3 transition-colors hover:text-foreground">
+                  <Mail className="h-4 w-4 text-accent-blue" /> hello@dalirrondigital.co.uk
                 </a>
               </li>
               <li>
@@ -726,7 +726,7 @@ function Contact() {
                     className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200"
                   >
                     {error} You can also email{" "}
-                    <a href="mailto:dalirrondigital@gmail.com" className="underline">dalirrondigital@gmail.com</a>{" "}
+                    <a href="mailto:hello@dalirrondigital.co.uk" className="underline">hello@dalirrondigital.co.uk</a>{" "}
                     or message us on{" "}
                     <a href="https://wa.me/447916702846" target="_blank" rel="noopener noreferrer" className="underline">WhatsApp</a>.
                   </div>
@@ -796,8 +796,8 @@ function Footer() {
           <div className="mb-3 text-xs uppercase tracking-widest text-accent-blue">Contact</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
-              <a href="mailto:dalirrondigital@gmail.com" className="flex items-center gap-2 transition-colors hover:text-foreground">
-                <Mail className="h-4 w-4 text-accent-blue" /> dalirrondigital@gmail.com
+              <a href="mailto:hello@dalirrondigital.co.uk" className="flex items-center gap-2 transition-colors hover:text-foreground">
+                <Mail className="h-4 w-4 text-accent-blue" /> hello@dalirrondigital.co.uk
               </a>
             </li>
             <li>
